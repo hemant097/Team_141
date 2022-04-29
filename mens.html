@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Mens</title>
+    <style>
+      .container {
+        width: 90%;
+        margin: auto;
+        display: flex;
+        justify-content: space-between;
+      }
+      .cards h2:nth-last-child(2) {
+        margin: -10px 0;
+        color: rgb(135, 123, 123);
+        font-weight: lighter;
+      }
+      .cards h3 {
+        margin-right: 15px;
+      }
+      .cards h3:nth-last-child(2) {
+        color: rgb(135, 123, 123);
+        text-decoration: line-through;
+      }
+      .cards h3:nth-last-child(1) {
+        color: rgb(109, 224, 109);
+      }
+      .flex {
+        display: flex;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container"></div>
+  </body>
+</html>
+<script>
+  var mensData = [
+    {
+      image_url:
+        "https://content.shop4reebok.com/static/Product-GQ8758/reebok_GQ8758_1.jpg.plp ",
+      brand: "Reebok",
+      name: "REEBOK TRAINING POLO",
+      price: 359,
+      strikedoffprice: 1499,
+      discount: -76,
+    },
+
+    {
+      image_url:
+        "https://content.shop4reebok.com/static/Product-GP7180/reebok_GP7180_1.jpg.plp",
+      brand: "Polo",
+      name: "BASIC POLO TEE",
+      price: 799,
+      strikedoffprice: 1199,
+      discount: -47,
+    },
+    {
+      image_url:
+        "https://content.shop4reebok.com/static/Product-GQ8758/reebok_GQ8758_1.jpg.plp",
+      brand: "Vox",
+      name: "MEN'S MOVE TEE ",
+      price: 1749,
+      strikedoffprice: 2499,
+      discount: -76,
+    },
+    {
+      image_url:
+        "https://content.shop4reebok.com/static/Product-G57776/reebok_G57776_1.jpg.plp",
+      brand: "Adidas",
+      name: "Sports Shoe Adidas Super",
+      price: 1079,
+      strikedoffprice: 1799,
+      discount: -76,
+    },
+  ];
+
+  mensData.forEach(function (el) {
+    var cards = document.createElement("div");
+    cards.setAttribute("class", "cards");
+    var flex = document.createElement("div");
+    flex.setAttribute("class", "flex");
+
+    var img = document.createElement("img");
+    // img.setAttribute("src", el.image_url);
+    img.src = el.image_url;
+    var brand = document.createElement("h2");
+    brand.innerText = el.brand;
+    var name = document.createElement("h2");
+    name.innerText = el.name;
+
+    var price = document.createElement("h3");
+    price.innerText = "₹" + el.price;
+    var strprice = document.createElement("h3");
+    strprice.innerText = "₹" + el.strikedoffprice;
+    var discount = document.createElement("h3");
+    discount.innerText = el.discount + "%";
+
+    flex.append(price, strprice, discount);
+    cards.append(img, brand, name, flex);
+
+    document.querySelector(".container").append(cards);
+  });
+</script>
